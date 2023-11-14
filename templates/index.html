@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>BMI Calculator</h1>
+        <form method="post">
+            <label for="height">Height (m):</label>
+            <input type="text" name="height" required><br>
+            <label for="weight">Weight (kg):</label>
+            <input type="text" name="weight" required><br>
+            <center><button type="submit">Calculate BMI</button></center>
+        </form>
+
+        {% if bmi is not none %}
+        <div class="result-container">
+            <div class="result">
+                <p>Your BMI is: {{ bmi }}</p>
+                <p>You are in the {{ bmi_level }} range.</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
